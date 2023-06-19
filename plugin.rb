@@ -25,6 +25,8 @@ after_initialize do
              "#{Rails.root}/plugins/discourse-translator/services/discourse_translator/amazon"
     autoload :Yandex,
              "#{Rails.root}/plugins/discourse-translator/services/discourse_translator/yandex"
+    autoload :Deepl,
+             "#{Rails.root}/plugins/discourse-translator/services/discourse_translator/deepl"
 
     class Engine < ::Rails::Engine
       engine_name PLUGIN_NAME

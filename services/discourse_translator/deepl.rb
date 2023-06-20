@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require 'json'
+require_relative "base"
+require "json"
 
 module DiscourseTranslator
   class Deepl < Base
@@ -13,7 +13,7 @@ module DiscourseTranslator
     FREE_SUPPORT_URI = "https://api-free.deepl.com/v2/languages".freeze
     #SUPPORT_URI = "https://www.googleapis.com/language/translate/v2/languages".freeze
     MAXLENGTH = 5000
-    SUPPORTED_LANG = {
+    SUPPORTED_LANG_MAPPING = {
       en: 'EN-US',
       bg: 'BG',
       en_GB: 'EN-GB',

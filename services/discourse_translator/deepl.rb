@@ -74,7 +74,7 @@ module DiscourseTranslator
       puts "GOing to try to detect anyway"
       r=result(detect_uri,
           { text: post.cooked.truncate(MAXLENGTH, omission: nil),
-            target_lang: SUPPORTED_LANG[I18n.locale]
+            target_lang: SUPPORTED_LANG_MAPPING[I18n.locale]
           }
           )
       language = r[0]['detected_source_language']
@@ -84,8 +84,8 @@ module DiscourseTranslator
 
     def self.broken_translate_supported?(source, target)
       # NOTE: Source is ignored, since we can't know until it's too late
-      puts "supported? T: #{target}--> #{SUPPORTED_LANG[target.to_sym]}. S: #{source}"
-      if SUPPORTED_LANG[target.to_sym]
+      puts "supported? T: #{target}--> #{SUPPORTED_LANG_MAPPING[target.to_sym]}. S: #{source}"
+      if SUPPORTED_LANG_MAPPING[target.to_sym]
         puts "Supported"
         return true
       else
@@ -93,9 +93,9 @@ module DiscourseTranslator
         return false
       end
       
-      res = result(SUPPORT_URI, target: SUPPORTED_LANG[target])
+      res = result(SUPPORT_URI, target: SUPPORTED_LANG_MAPPING[target])
       res["languages"].any? { |obj| obj["language"] == source }
-      SUPPORTED_LANG[target.to_sym]
+      SUPPORTED_LANG_MAPPING[target.to_sym]
     end
 
     def self.translate_supported?(source, target)
@@ -119,7 +119,7 @@ module DiscourseTranslator
           text: post.cooked.truncate(MAXLENGTH, omission: nil),
           #asource_lang: detected_lang,
           tag_handling: "xml",
-          target_lang: SUPPORTED_LANG[I18n.locale]
+          target_lang: SUPPORTED_LANG_MAPPING[I18n.locale]
         )
         puts "Translation: #{res[0]['text']}"
         res[0]["text"]

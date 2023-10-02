@@ -20,7 +20,6 @@ module DiscourseTranslator
       de: 'de',
       el: 'el',
       es: 'es',
-      eo: 'eo',
       et: 'et',
       fi: 'fi',
       fr: 'fr',

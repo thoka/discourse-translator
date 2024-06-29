@@ -117,7 +117,9 @@ after_initialize do
         return unless post
 
         DistributedMutex.synchronize("detect_translation_#{post.id}") do
-          "DiscourseTranslator::#{SiteSetting.translator}".constantize.detect(post)
+          "DiscourseTranslator::#{SiteSetting.translator_language_detector || SiteSetting.translator}".constantize.detect(
+            post,
+          )
           if !post.custom_fields_clean?
             post.save_custom_fields
             post.publish_change_to_clients! :revised

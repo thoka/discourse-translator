@@ -2,6 +2,7 @@ en:
   site_settings:
     translator_enabled: "Allow inline translation of posts."
     translator: "The provider of the translation service."
+    translator_language_detector: "The provider of the language detection service."
     translator_azure_subscription_key: "Azure Subscription Key"
     translator_azure_region: "Azure Region"
     translator_google_api_key: "Google API Key"

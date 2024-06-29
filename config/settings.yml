@@ -12,6 +12,16 @@ discourse_translator:
       - Amazon
       - Yandex
       - LibreTranslate
+  translator_language_detector:
+    default: 'Microsoft'
+    client: true
+    type: enum
+    choices:
+      - Microsoft
+      - Google
+      - Amazon
+      - Yandex
+      - LibreTranslate
   translator_azure_subscription_key:
     default: ''
   translator_azure_region:
